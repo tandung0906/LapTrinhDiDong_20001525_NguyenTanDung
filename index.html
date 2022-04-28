@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <title>Document</title>
+    <script>
+        $(document).ready(function(){
+            var i = 1;
+            $("#myBtn").click(function (){
+                $("#myModal").modal();
+            });
+            function kiemTraTen(){
+                 var i = 1;
+                 let mauKT = /([A-Z]{1}[a-z]+)((\s{1}[A-Z]+){1,})$/;
+                 if($("#Name").val() == ""){
+                     $("#tbName").html("không để trống");
+                     return false;
+                 }
+                 if(!maKT.test($("Name").val())){
+                     $("#tbName").html("Mỗi ký tự đầu tiên viết hoa không sử dụng số");
+                     return true;
+                 }
+                 $("#Name").html("*");
+                 return true;
+             }
+             $("#Name").blur(kiemTraTen);
+             function kiemTraSoAo(){
+                 var mauKT = /^\d*$/;
+                 if ($("#Ao").val() == ""){
+                     $("#tbAo").html("Không để trống");
+                     return false;
+                 }
+                 if(!mauKT.test($("#Ao").val())){
+                     $("#tbAo").html("Dùng số từ 1 đến 20");
+                 }else{
+                     var soAo = $("#Ao").val();
+                     if(soAo <1 || soAo>20){
+                         $("#tbAo").html("từ 1 đến ");
+                     }else{
+                         $("#tbAo").html("*");
+                         return true;
+                     }
+                 }
+             }
+             $("#Ao").blur(kiemTraSoAo);
+             function KiemCauLacBo(){
+                 var mauKT = /^[A-Z0-9][a-z0-9][a-z0-9]*)*$/;
+                 if($("#CLB").val() == ""){
+                     $("#tbCLB").html("Không để trống");
+                     return false;
+                 }
+                 if(!mauKT.test($("#CLB").val())){
+                     $("#tbCLB").html("Mỗi ký tự đầu tiên viết hoa không sử dụng số");
+                     return true;
+                 }
+                 $("#tbCLB").html("*");
+                 return true;
+             }
+             $("#tbCLB").blur(KiemCauLacBo);
+             function kiemTraNTT(){
+                 if($("#NTT").val()==""){
+                     $("#tbNTT").html("Không để trống");
+                     return false;
+                 }
+                 var today = new Date();
+                 var ntt = new Date($("#NTT").val());
+                 today = today.setDate(today.getDate()+7);
+                 if(today>ntt){
+                     $("#tbNTT").html("Phải sau ngat hiện tại 7 ngày");
+                     return false;
+                 }
+                 $("#tbNTT").html("*");
+                 return true;
+             }
+             $("#NTT").blur(kiemTraNTT);
+             function kiemtraSDT(){
+                 var maKT = /^0\d{3}-\d{3}-\d{3}$/;
+                 if($("#SDT").val() == ""){
+                     $("#tbSDT").html("Không để trống");
+                     return false;
+                 }
+                 if(!maKT.test($("#SDT").val())){
+                     $("#tbSDT").html("Theo Dạng 0xxx-xxx-xxx trong đó x là số");
+                     return true;
+                 }
+                 $("#tbSDT").html("*");
+                 return true;
+             }
+             $("#SDT").blur(kiemtraSDT);
+             $("#Save").click(function(){
+                 if(kiemTraTen == true && kiemTraSoAo == true && kiemTraNTT == true && KiemTraDiaChi == true && kiemtraSDT == true ){
+                     row ="<tr>";
+                        row += "<th>"+(i++) + "</th>";
+                        row += "<th>" + $("#Name").val() + "</th>";
+                        row += "<th>" + $("#AO").val() + "</th>";
+                        row += "<th>" + $("#CLB").val() + "</th>";
+                        row += "<th>" + $("#NTT").val() + "</th>";
+                        row += "<th>" + $("#SDT").val() + "</th>";
+                        row += "<th>" + $("#ADD").val() + "</th>";
+                        $("#danhSach").append(row);
+                        $("myModal").modal("hide");
+                 }
+             })
+        });
+    </script>
+</head>
+<body>
+<div>
+    <div class="container">
+        <div class="col-xs-12">
+            <header>
+                <img src="im/HEADER.PNG" alt="" width="100%">
+            </header>
+        </div>
+        <div class="col-xs-12" data-toggle="modal" data-target="#myModal">
+            <nav class="navbar  navbar-expand-sm  justify-content-start">
+                <ul class="navbar nav">
+                    <li class="navbar-item"><a href="#" style="margin-right: 20px" id="btn1" class="navbar-link">Đăng
+                            nhập</a></li>
+                    <li class="navbar-item"><a href="#" class="navbar-link" id="btn2">Đăng ký</a></li>
+                </ul>
+            </nav>
+        </div>
+    <div class="col-xs-12">
+        <h4 style="text-align:center">DANH SÁCH ĐỘI TUYỂN VIỆT NAM</h4>
+        <table class="table table-striped" role="table" id="danhSach">
+            <tr>
+                <th>STT</th>
+                <th>Họ tên</th>
+                <th>Số áo</th>
+                <th>Câu lạc bộ</th>
+                <th>Ngày tập trung</th>
+                <th>Điện thoại</th>
+                <th>Ảnh đại diện</th>
+            </tr>
+        </table>
+    </div>
+    <div class="col-xs-12">
+        <footer><p style="text-align: center;">Mã Sinh Viên:20001815 Lớp:DHKTPM16A</p></footer>
+    </div>
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 style="text-align: center;">THÔNG TIN CÁ NHÂN</h4>
+            </div>
+            <div class="modal-body">
+        <form role="form" class="form-horizontal" style="margin-top: 10px;">
+        <label for="Name" class="control-lable col-xs-3">Họ tên</label>
+        <div class="col-xs-9">
+            <input type="text" id="Name" class="form-control">
+            <span class="text-danger" id="tbName">*</span>
+        </div>
+        <label for="Ao" class="control-lable col-xs-3">Số áo</label>
+        <div class="col-xs-9" style="margin-bottom: 10px;">
+            <input type="text" id="Ao" class="form-control">
+            <span class="text-danger" style="color: red;" id="tbAo">*</span>
+        </div> 
+        <label for="DC" class="control-lable col-xs-3">Câu lạc bộ</label>
+        <div class="col-xs-9" >
+            <input type="text" id="DC" class="form-control">
+            <span class="text-danger" style="color: red;" id="tbDC">*</span>
+        </div> 
+        <label for="NTT" class="control-lable col-xs-3">Ngày tập trung</label>
+        <div class="col-xs-9" >
+            <input type="date" id="NTT" class="form-control">
+            <span class="text-danger" style="color: red;" id="tbNTT">*</span>
+        </div> 
+        <label for="SDT" class="control-lable col-xs-3">Số điện thoại</label>
+        <div class="col-xs-9" >
+            <input type="text" id="SDT" class="form-control">
+            <span class="text-danger" style="color: red;" id="tbSDT">*</span>
+        </div> 
+        <label for="ADD" class="control-lable col-xs-3">Ảnh đại điện</label>
+        <div class="col-xs-9" >
+            <input type="file" id="ADD" class="form-control">
+            <span class="text-danger" style="color: red;" id="tbAdd">*</span>
+        </div> 
+        <button class="btn btn-sucess btn-groupjustified" id="Save" type="button" style="color: white; background-color: green; width: 100%;">
+            Lưu
+        </button>
+         </form>
+            </div>
+        </div>
+        </div>
+       </div>
+</body>
+
+</html>
