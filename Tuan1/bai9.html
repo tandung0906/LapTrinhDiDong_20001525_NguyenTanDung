@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. Tạo một hàm 'printForecast' nhận vào một mảng 'arr' và in ra chuỗi dự báo nhiệt độ
+const printForecast = (arr) => {
+  let forecastString = "";
+  for (let i = 0; i < arr.length; i++) {
+    forecastString += `... ${arr[i]}°C in ${i + 1} days `;
+  }
+  console.log(forecastString);
+};
+
+// 2. Sử dụng hàm 'printForecast' với các tập dữ liệu kiểm tra
+console.log("Data 1:");
+printForecast([17, 21, 23]);
+
+console.log("\nData 2:");
+printForecast([12, 5, -5, 0, 4]);
+
+    </script>
+</body>
+</html>
