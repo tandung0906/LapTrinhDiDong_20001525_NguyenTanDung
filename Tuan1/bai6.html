@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// 1. Viết một hàm 'calcTip' nhận giá trị hóa đơn bất kỳ làm đầu vào và trả về tiền boa tương ứng, tính dựa trên các quy tắc đã cho
+const calcTip = (bill) => (bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2);
+
+// Kiểm tra hàm với một giá trị hóa đơn là 100
+const testBill = 100;
+const tipForTestBill = calcTip(testBill);
+console.log(`Tiền boa cho hóa đơn ${testBill} is ${tipForTestBill}`);
+
+
+// 2. Tạo một mảng 'hoaDon' chứa dữ liệu kiểm tra
+const bills = [125, 555, 44];
+
+// 3. Tạo một mảng 'tienBoa' chứa các giá trị tiền boa tính từ hàm 'calcTip'
+const tips = bills.map((bill) => calcTip(bill));
+
+// 4. Bonus: Tạo một mảng 'tong' chứa giá trị tổng cộng (hoa đơn + tiền boa)
+const totals = bills.map((bill, index) => bill + tips[index]);
+
+console.log("Bills:", bills);
+console.log("Tips:", tips);
+console.log("Totals:", totals);
+
+    </script>
+</body>
+</html>

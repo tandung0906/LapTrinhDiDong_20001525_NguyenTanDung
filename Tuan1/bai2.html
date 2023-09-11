@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Máy tính chỉ số BMI</title>
+</head>
+
+<body>
+    <script>
+        // Dữ liệu cho Mark và John
+        var canNangMark = 78; // Cân nặng của Mark (kg)
+        var chieuCaoMark = 1.69; // Chiều cao của Mark (m)
+
+        var canNangJohn = 92; // Cân nặng của John (kg)
+        var chieuCaoJohn = 1.95; // Chiều cao của John (m)
+
+        // Tính chỉ số BMI cho Mark và John
+        var bmiMark = canNangMark / (chieuCaoMark * chieuCaoMark);
+        var bmiJohn = canNangJohn / (chieuCaoJohn * chieuCaoJohn);
+
+        // So sánh chỉ số BMI và in thông báo đẹp lên console
+        if (bmiMark > bmiJohn) {
+            console.log(`Chỉ số BMI của Mark (${bmiMark.toFixed(1)}) cao hơn John (${bmiJohn.toFixed(1)})!`);
+        } else if (bmiJohn > bmiMark) {
+            console.log(`Chỉ số BMI của John (${bmiJohn.toFixed(1)}) cao hơn Mark (${bmiMark.toFixed(1)})!`);
+        } else {
+            console.log(`Mark và John có cùng chỉ số BMI (${bmiMark.toFixed(1)})!`);
+        }
+    </script>
+</body>
+
+</html>

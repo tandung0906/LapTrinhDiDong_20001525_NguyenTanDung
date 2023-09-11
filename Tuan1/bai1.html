@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>B MI Calculator</title>
+</head>
+
+<body>
+    <script>
+        // Data 1: Thông tin của mask's và john's
+        var markMass1 = 78; // Mark's 
+        var markHeight1 = 1.69; // Mark's 
+
+        var johnMass1 = 92; // John's 
+        var johnHeight1 = 1.95; // John's 
+
+        // Chỉ số khối lượng cơ thể của mask's và john's
+        var markBMI1 = markMass1 / (markHeight1 * markHeight1);
+        var johnBMI1 = johnMass1 / (johnHeight1 * johnHeight1);
+
+        // So sánh chỉ số giữa mask's và john's
+        var markHigherBMI1 = markBMI1 > johnBMI1;
+
+        // Kết quả của Data 1
+        console.log("Data 1:");
+        console.log("Chỉ số BMI của Mark's: " + markBMI1);
+        console.log("Chỉ số BMI của John's : " + johnBMI1);
+        console.log("Chỉ số BMI của Mark's cao hơn John's ở Data1: " + markHigherBMI1);
+
+        // Data 2: Thông tin của mask's và john's
+        var markMass2 = 95; // Mark's 
+        var markHeight2 = 1.88; // Mark's 
+
+        var johnMass2 = 85; // John's 
+        var johnHeight2 = 1.76; // John's 
+
+        // Chỉ số khối lượng cơ thể của mask's và john's
+        var markBMI2 = markMass2 / (markHeight2 * markHeight2);
+        var johnBMI2 = johnMass2 / (johnHeight2 * johnHeight2);
+
+        // So sánh chỉ số giữa mask's và john's
+        var markHigherBMI2 = markBMI2 > johnBMI2;
+
+        // Kết quả của Data 2
+        console.log("Data 2:");
+        console.log("Mark's BMI: " + markBMI2);
+        console.log("John's BMI: " + johnBMI2);
+        console.log("Chỉ số BMI của Mark's cao hơn John's ở Data1: " + markHigherBMI2);
+    </script>
+</body>
+
+</html>

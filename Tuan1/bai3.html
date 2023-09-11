@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tìm đội thắng</title>
+</head>
+
+<body>
+    <script>
+        // Dữ liệu 1: Đội cá heo ghi được 96, 108 và 89 điểm. Đội gấu trúc ghi được 88, 91 và 110 điểm.
+        const diemCuaDolphins1 = [96, 108, 89];
+        const diemCuaKoalas1 = [88, 91, 110];
+
+        // Dữ liệu Bonus 1: Đội cá heo ghi được 97, 112 và 101 điểm. Đội gấu trúc ghi được 109, 95 và 123 điểm.
+        const diemCuaDolphinsBonus1 = [97, 112, 101];
+        const diemCuaKoalasBonus1 = [109, 95, 123];
+
+        // Dữ liệu Bonus 2: Đội cá heo ghi được 97, 112 và 101 điểm. Đội gấu trúc ghi được 109, 95 và 106 điểm.
+        const diemCuaDolphinsBonus2 = [97, 112, 101];
+        const diemCuaKoalasBonus2 = [109, 95, 106];
+
+        // Hàm tính điểm trung bình
+        function tinhDiemTrungBinh(diem) {
+        const tong = diem.reduce((tong, diem) => tong + diem, 0);
+        return tong / diem.length;
+        }
+
+        // Hàm xác định người chiến thắng
+        function xacDinhNguoiChienThang(diemDolphins, diemKoalas) {
+        const diemTrungBinhDolphins = tinhDiemTrungBinh(diemDolphins);
+        const diemTrungBinhKoalas = tinhDiemTrungBinh(diemKoalas);
+
+        if (diemTrungBinhDolphins > diemTrungBinhKoalas) {
+            console.log("Đội cá heo chiến thắng với điểm trung bình " + diemTrungBinhDolphins);
+        } else if (diemTrungBinhKoalas > diemTrungBinhDolphins) {
+            console.log("Đội gấu trúc chiến thắng với điểm trung bình " + diemTrungBinhKoalas);
+        } else {
+            console.log("Hòa với điểm trung bình " + diemTrungBinhDolphins);
+        }
+        }
+
+        console.log("Dữ liệu 1:.");
+        console.log("Điểm trung bình của Dolphins1:" + tinhDiemTrungBinh(diemCuaDolphins1));
+        console.log("Điểm trung bình của Koalas1:" + tinhDiemTrungBinh(diemCuaKoalas1));
+
+        console.log("\nDữ liệu Bonus 1:");
+        console.log("Điểm trung bình của DolphinsBonus1:" + tinhDiemTrungBinh(diemCuaDolphinsBonus1));
+        console.log("Điểm trung bình của KoalasBonus2:" + tinhDiemTrungBinh(diemCuaKoalasBonus1));
+
+        console.log("\nDữ liệu Bonus 2:");
+        console.log("Điểm trung bình của DolphinsBonus2:" + tinhDiemTrungBinh(diemCuaDolphinsBonus2));
+        console.log("Điểm trung bình của KoalasBonusw2:" + tinhDiemTrungBinh(diemCuaKoalasBonus2));
+
+
+        console.log("Dữ liệu 1:");
+        xacDinhNguoiChienThang(diemCuaDolphins1, diemCuaKoalas1);
+
+        console.log("\nDữ liệu Bonus 1:");
+        xacDinhNguoiChienThang(diemCuaDolphinsBonus1, diemCuaKoalasBonus1);
+
+        console.log("\nDữ liệu Bonus 2:");
+        xacDinhNguoiChienThang(diemCuaDolphinsBonus2, diemCuaKoalasBonus2);
+         // Hàm xác định người chiến thắng với yêu cầu điểm tối thiểu là 100
+         function xacDinhNguoiChienThangVoiVarMinimum(diemCuaDolphins, diemCuaKoalas) {
+            const diemTrungBinhDolphins = tinhDiemTrungBinh(diemCuaDolphins);
+            const diemTrungBinhKoalas = tinhDiemTrungBinh(diemCuaKoalas);
+
+            if (diemTrungBinhDolphins >= 100 && diemTrungBinhDolphins > diemTrungBinhKoalas) {
+                console.log("Đội cá heo chiến thắng với điểm trung bình " + diemTrungBinhDolphins);
+            } else if (diemTrungBinhKoalas >= 100 && diemTrungBinhKoalas > diemTrungBinhDolphins) {
+                console.log("Đội gấu trúc chiến thắng với điểm trung bình " + diemTrungBinhKoalas);
+            } else if (diemTrungBinhDolphins >= 100 && diemTrungBinhKoalas >= 100 && diemTrungBinhDolphins === diemTrungBinhKoalas) {
+                console.log("Trận đấu hòa với điểm trung bình " + diemTrungBinhDolphins);
+            } else {
+                console.log("Không có đội nào chiến thắng");
+            }
+        }
+
+        console.log("Dữ liệu 1 (với yêu cầu điểm tối thiểu):");
+        xacDinhNguoiChienThangVoiVarMinimum(diemCuaDolphins1, diemCuaKoalas1);
+
+        console.log("\nDữ liệu Bonus 1 (với yêu cầu điểm tối thiểu):");
+        xacDinhNguoiChienThangVoiVarMinimum(diemCuaDolphinsBonus1, diemCuaKoalasBonus1);
+
+        console.log("\nDữ liệu Bonus 2 (với yêu cầu điểm tối thiểu):");
+        xacDinhNguoiChienThangVoiVarMinimum(diemCuaDolphinsBonus2, diemCuaKoalasBonus2);
+
+     </script>
+</body>
+
+</html>

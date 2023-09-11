@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// Test data
+const billValues = [275, 40, 430];
+
+// Tính tiền tip (tiền boa)
+const tips = billValues.map(bill => (bill >= 50 && bill <= 300) ? bill * 0.15 : bill * 0.2);
+
+// Tính tổng giá trị cuối cùng (giá hóa đơn + tiền tip)
+const totalValues = billValues.map((bill, index) => bill + tips[index]);
+
+// Print the results
+totalValues.forEach((total, index) => {
+  const bill = billValues[index];
+  const tip = tips[index];
+  console.log(`Hóa đơn là ${bill}, tiền tip là ${tip}, và tổng giá trị cuối cùng là ${total}`);
+});
+
+
+    </script>
+</body>
+</html>
